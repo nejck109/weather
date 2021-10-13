@@ -1,15 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Search @search-history="getSearchHistory"
+          @search-data="getSearchData"/>
+  <SearchHistory :searchHistoryArray="searchHistoryArray" />
+  <div>{{this.searchData}}</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Search from './components/Search.vue'
+import SearchHistory from './components/SearchHistory.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search,
+    SearchHistory
+  },
+  data() {
+    return {
+      searchHistoryArray: [],
+      searchData: []
+    }
+  },
+  methods: {
+    getSearchHistory(value){
+      this.searchHistoryArray = value;
+    },
+    getSearchData(value){
+      this.searchData = value;
+    },
   }
 }
 </script>
