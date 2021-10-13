@@ -1,58 +1,60 @@
 <template>
-    <form @submit.prevent="onSubmit">
-  <input type="text" v-model="searchString">
-    <input type="submit">
-    <div v-if="cityNotValid">Napacno mesto</div>
+    <form @submit.prevent="onSubmit" >
+  <input type="text" v-model="searchHisText" :placeholder="this.searchHisText">
+    <input type="submit" :disabled="searchHisText.length === 0" value="SEARCH">
+    <!-- Error field -->
+    <div class="error-message" v-if="cityNotValid">{{errorText}}</div>
      </form>
 </template>
 
 <script>
 export default {
     name: 'Search',
+    props: ['cityNotValid', 'searchHisText'],
     data() {
         return {
-           searchString: '',
-           weatherDataJSON: [],
-           searchHistoryArray: [],
-           cityNotValid: false 
+           searchString: this.searchHisText,
+           errorText: 'City with that name was not found.'
         }
     },
     methods:{
-        async onSubmit(e){
-
+        onSubmit(e){
             e.preventDefault();
-
-            // Fetch data
-            this.weatherDataJSON = await this.fetchWeather();
-
-            // Add to search History only if response (city) was valid
-            if(!this.cityNotValid){
-
-                this.searchHistoryArray.unshift(this.searchString); // Add at the beggining of search history
-                this.$emit('search-history', this.searchHistoryArray); // Pass array to parent
-                this.$emit('search-data', this.weatherDataJSON); // Pass array to parent
-            }
-            
-            this.searchString = ''; // Delete previous search
-            
+            this.$emit('search-string', this.searchHisText); // Pass array to parent
         },
-        async fetchWeather() {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.searchString}&appid=8d071f92b0322fc48b1601f4f2e567ce`)
-            
-            // Check if response was valid and set boolean to true if city was valid
-            if(!res.ok){
-                this.cityNotValid = true;
-            }else{
-                this.cityNotValid = false;
-                const data = await res.json()
-                         
-                return data
-            }
-    },
+       
     }
 }
 </script>
 
-<style>
+<style scoped>
+.error-message {
+  color: #cc0033;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  text-shadow: 1px 1px rgba(250,250,250,.3);
+  padding: 10px 30px;
+}
+input[type=text] {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  margin-right: 10px;
+}
 
+input[type=submit] {
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid #593C15;
+    color: #FF6720;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 </style>
