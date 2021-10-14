@@ -2,7 +2,7 @@
 
 Izdelal sem testno nalogo, po poslanih navodilih.
 
-Kodo lahko prenesete iz GitHuba in mapo odprete v izbranem programu. Ko se nahajate v izbrani mapi od aplikacije, jo lahko pozenete sami z naslednjimi ukazi:
+Kodo lahko prenesete iz GitHuba in mapo odprete v izbranem programu. Ko se nahajate v izbrani mapi od aplikacije, jo lahko pozenete sami z naslednjimi ukazi (potreben NPM):
 
 ```
 npm install
@@ -30,3 +30,12 @@ Pri prikazu vremena lahko vidimo:
 Aplikacijo sem izdeloval po navodilih in jo še malo dopolnil z CSSjem. Želel sem tudi čim bolje razvrstiti elemente, obvestiti uporabnika o napaki in preprečiti prazen vnos v polje.
 
 Sama koda je sestavljena iz glavne strani in treh komponent. Search, Search History in Show Weather. Imena sem poimenoval logično po temu, kar določena komponenta dela.
+
+V kolikor imate dodatna vprašanja me kontaktirajte.
+
+
+## Zanimivosti pri izdelovanju aplikacije: 
+
+Na svetu obstaja mesto "Solata" (Italija) - Sprva sem mislil da mi program ne deluje pravilno
+Na svetu obstaja veliko mest z imenom Banana.
+
