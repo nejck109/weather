@@ -1,13 +1,12 @@
 # Vremenska aplikacija
 
-Izdelal sem testno nalogo, po poslanih navodilih. Aplikacijo lahko pozenete sami z naslednjimi ukazi:
+Izdelal sem testno nalogo, po poslanih navodilih.
 
-## Project setup
+Kodo lahko prenesete iz GitHuba in mapo odprete v izbranem programu. Ko se nahajate v izbrani mapi od aplikacije, jo lahko pozenete sami z naslednjimi ukazi:
+
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
