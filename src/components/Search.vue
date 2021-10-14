@@ -2,7 +2,6 @@
     <form @submit.prevent="onSubmit" >
   <input type="text" v-model="searchHisText" :placeholder="this.searchHisText">
     <input type="submit" :disabled="searchHisText.length === 0" value="SEARCH">
-    <!-- Error field -->
     <div class="error-message" v-if="cityNotValid">{{errorText}}</div>
      </form>
 </template>
@@ -10,17 +9,18 @@
 <script>
 export default {
     name: 'Search',
-    props: ['cityNotValid', 'searchHisText'],
+    props: ['cityNotValid', 'searchHisText'], // Initial value in input field is set by searchHisText
+          // CityNotValid is for displaying error message when city was not found in response
+    
     data() {
         return {
-           searchString: this.searchHisText,
-           errorText: 'City with that name was not found.'
+           errorText: 'City with that name was not found.' // Error field text
         }
     },
     methods:{
         onSubmit(e){
             e.preventDefault();
-            this.$emit('search-string', this.searchHisText); // Pass array to parent
+            this.$emit('search-string', this.searchHisText); // Pass search string to parent
         },
        
     }

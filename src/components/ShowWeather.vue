@@ -5,22 +5,22 @@
             
             <div>
                 <p class="bolded">Temperature</p>
-                <p>{{this.FtoCelsius(returnedData.main.temp)}}<span>&#8451;</span></p>
+                <p>{{this.KtoCelsius(returnedData.main.temp)}}<span>&#8451;</span></p>
             </div>
 
             <div>
                 <p class="bolded">Feels like</p>
-                <p>{{this.FtoCelsius(returnedData.main.feels_like)}}<span>&#8451;</span></p>
+                <p>{{this.KtoCelsius(returnedData.main.feels_like)}}<span>&#8451;</span></p>
             </div>
 
             <div>
                 <p class="bolded">Low Temp</p>
-                <p>{{this.FtoCelsius(returnedData.main.temp_min)}}<span>&#8451;</span></p>
+                <p>{{this.KtoCelsius(returnedData.main.temp_min)}}<span>&#8451;</span></p>
             </div>
 
             <div>
                 <p class="bolded">High Temp</p>
-                <p>{{this.FtoCelsius(returnedData.main.temp_max)}}<span>&#8451;</span></p>
+                <p>{{this.KtoCelsius(returnedData.main.temp_max)}}<span>&#8451;</span></p>
             </div>
 
             <div>
@@ -35,16 +35,14 @@
 <script>
 export default {
     name: 'ShowWeather',
-    props: ['returnedData'],
+    props: ['returnedData'], // Get JSON data from parent
     methods: {
-        FtoCelsius(temp){
+        KtoCelsius(temp){ // Celsius for each temperature in ShwoWeather component
             let strTemp = JSON.stringify(temp);
-            strTemp = strTemp - 273.15;
-            return  Math.floor(strTemp);
+            strTemp = strTemp - 273.15; // Formula for getting celsius from K 
+            return  Math.floor(strTemp); // Get just the whole number
         }
-    },
-
-    
+    },  
 }
 </script>
 

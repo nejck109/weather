@@ -26,41 +26,45 @@ export default {
   },
   data() {
     return {
-      searchHistoryArray: [],
-      returnedData: [],
-      searchString: '',
-      cityNotValid: false,
-      showWeatherBlock: false
+      searchHistoryArray: [], // Search History
+      returnedData: [], // JSON data
+      searchString: '', // Searched string
+      cityNotValid: false, // Remember if city was not found
+      showWeatherBlock: false // If city was found, show it's weather info
     }
   },
   methods: {
      async fetchWeather(value) {
         
-        this.searchString = value.toLowerCase();
-         // Fetch data
+        this.searchString = value.toLowerCase(); // get search string and transform to lower case - (includes method case sensitive)
+        
+        // Fetch data
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.searchString}&appid=8d071f92b0322fc48b1601f4f2e567ce`)
             
 
-            // Check if response was valid and set boolean to true if city was valid
+            // Check if response was valid 
             if(!res.ok){
-                this.cityNotValid = true;
-                this.showWeatherBlock = false;
+
+                this.cityNotValid = true; // Set city boolean to true if city was not valid
+                this.showWeatherBlock = false; // Do not show weather for invalid response
             }else{
                 this.cityNotValid = false;
 
+                // Check if search string is already in history list
                 if(this.searchHistoryArray.includes(this.searchString)){
-                  var ind = this.searchHistoryArray.indexOf(this.searchString);
-                  this.searchHistoryArray.splice(ind, 1);
+                    var ind = this.searchHistoryArray.indexOf(this.searchString);  // If it is, remember index
+                    this.searchHistoryArray.splice(ind, 1); // Delete it
                 }
+
                 this.searchHistoryArray.unshift(this.searchString); // Add at the beggining of search history
-                if(this.searchHistoryArray.length > 5){
-                  this.searchHistoryArray.pop();
+
+                if(this.searchHistoryArray.length > 5){ 
+                    this.searchHistoryArray.pop(); // If we already have 5 history items, delete the last one.
                 }
-                // Get and return data
-                const data = await res.json();
-                this.returnedData = data;
-                this.showWeatherBlock = true;
-                console.log(data)
+                
+                const data = await res.json(); // Get data
+                this.returnedData = data; // Save data
+                this.showWeatherBlock = true; // Show weather for responce
                 return data;
               }
      },

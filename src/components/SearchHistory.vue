@@ -1,20 +1,24 @@
 <template>
+
     <h2>{{title}}</h2>
     <div class="flex-container">
-  <div class="bolded" @click="this.$emit('search-string', searchString);" v-for="(searchString, index) in searchHistoryArray" :key=index>{{searchString}}</div>
+        <div class="bolded" @click="this.$emit('search-string', searchString);"
+                v-for="(searchString, index) in searchHistoryArray"
+                :key=index>{{searchString}}
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'SearchHistory',
-    props: ['searchHistoryArray'],
+    props: ['searchHistoryArray'], // Get search history from the parent
     data() {
         return{
-            title: 'Search History'
+            title: 'Search History' //Title text
         }
     },
-    emits: ['searchString', 'search-string']
+    emits: ['searchString', 'search-string'] // On click on the search history item, we need to show weather for that item
 }
 </script>
 
@@ -43,5 +47,13 @@ h2{
     cursor: pointer;
     border-radius: 15px;
     border: 2px solid #593C15;
+}
+@media only screen and (max-width: 980px) {
+    .flex-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
 }
 </style>
