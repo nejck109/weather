@@ -1,4 +1,6 @@
-# weather
+# Vremenska aplikacija
+
+Izdelal sem testno nalogo, po poslanih navodilih. Aplikacijo lahko pozenete sami z naslednjimi ukazi:
 
 ## Project setup
 ```
@@ -9,11 +11,4 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ Lahko jo pa preizkusite na moji domeni: https://nejcklopcic.space/weather/
