@@ -34,8 +34,8 @@ Sama koda je sestavljena iz glavne strani in treh komponent. Search, Search Hist
 V kolikor imate dodatna vprašanja me kontaktirajte.
 
 
-## Zanimivosti pri izdelovanju aplikacije: 
+## Zanimivosti pri izdelovanju in testiranju aplikacije: 
 
-Na svetu obstaja mesto "Solata" (Italija) - Sprva sem mislil da mi program ne deluje pravilno
+Na svetu obstaja mesto "Solata" (Italija) - Sprva sem mislil da mi program ne deluje pravilno.
 Na svetu obstaja veliko mest z imenom Banana.
 
