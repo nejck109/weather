@@ -31,7 +31,7 @@ Aplikacijo sem izdeloval po navodilih in jo še malo dopolnil z CSSjem. Želel s
 
 Sama koda je sestavljena iz glavne strani in treh komponent. Search, Search History in Show Weather. Imena sem poimenoval logično po temu, kar določena komponenta dela.
 
-V kolikor imate dodatna vprašanja me kontaktirajte.
+V kolikor imate dodatna vprašanja me kontaktirajte. nejcklopcic1@gmail.com, tel: 064 105 505
 
 
 ## Zanimivosti pri izdelovanju in testiranju aplikacije: 
