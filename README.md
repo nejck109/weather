@@ -26,6 +26,7 @@ Pri prikazu vremena lahko vidimo:
  - Najnižjo temperaturo v dnevu
  - Najvišjo temperaturo v dnevu
  - Vlažnost
+
 Aplikacijo sem izdeloval po navodilih in jo še malo dopolnil z CSSjem. Želel sem tudi čim bolje razvrstiti elemente, obvestiti uporabnika o napaki in preprečiti prazen vnos v polje.
 
 Sama koda je sestavljena iz glavne strani in treh komponent. Search, Search History in Show Weather. Imena sem poimenoval logično po temu, kar določena komponenta dela.
